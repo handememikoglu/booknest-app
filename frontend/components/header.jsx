@@ -11,7 +11,6 @@ export default  async function Header(){
 
     return (
     <header className="w-full bg-[#1c1c2e] text-white shadow-md px-6 py-4 rounded-b-xl flex items-center justify-between">
-        <SettingsMenu/>
       <div className="flex items-center gap-4">
         <Image
           src="/logo.png" 
@@ -26,6 +25,7 @@ export default  async function Header(){
         <span className="text-m text-white">
           Hoşgeldin, <strong>{user?.username}</strong>
         </span>
+        <SettingsMenu/>
         <form action={logoutAction}>
           <Button type="submit" variant="destructive">
             Çıkış Yap

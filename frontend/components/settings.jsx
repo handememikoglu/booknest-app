@@ -1,21 +1,31 @@
 "use client"
-import { useState } from "react";
-import { Button } from "./ui/button";
 import ThemeToggle from "./themeToggle";
+import { Settings } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 export default function SettingsMenu(){
-    const [open, setOpen] = useState(false);
 
     return(
-        <div className="relative">
-            <Button onClick={()=> setOpen(!open)}>Ayarlar</Button>
+         <div className="flex items-center">
+            <DropdownMenu>
+            <DropdownMenuTrigger> <Settings className="w-[20] h-[20]" /></DropdownMenuTrigger>
+            <DropdownMenuContent>
+                <DropdownMenuItem>TemaAyarı</DropdownMenuItem>
+                <ThemeToggle/>
+            </DropdownMenuContent>
+            </DropdownMenu>
+         </div>
 
-            {open && (
-                <div className="absolute right-0 mt-2 p-4 bg-white dark:bg-gray-800 border rounded shadow-xl z-50">
-                    <h4 className="mb-2 font-semibold">Tema Ayarı</h4>
-                    <ThemeToggle/>
-                </div>
-            )}
-        </div>
+
+
+
     )
 }
