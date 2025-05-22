@@ -1,21 +1,26 @@
-import { Card, CardContent, CardHeader } from "./ui/card";
+import { Button } from "./ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 
 export default function Library({book}) {
 
   return(
-    <Card className="flex flex-row items-center justify-between p-4">
-      <div className="flex gap-2 items-center">
-        <div className="flex flex-col gap-1">
-          <CardHeader>
-            <h2>{book.title}</h2>
-          </CardHeader>
-          <CardContent>
-            <p>{book.author}</p>
-            <p>{book.type}</p>
-          </CardContent>
-        </div>
-      </div>
-    </Card>
+    <div>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1">
+          <AccordionTrigger>{book.title} {book.author} {book.type} </AccordionTrigger>
+          <AccordionContent>
+            <Button>Sil</Button>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+    </div>
   );
 }
