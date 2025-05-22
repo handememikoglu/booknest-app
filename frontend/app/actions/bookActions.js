@@ -1,5 +1,5 @@
 "use server";
-import { createLibrary, getToken } from "@/lib/strapiService";
+import { createLibrary, deleteBook, getToken } from "@/lib/strapiService";
 import { revalidatePath } from "next/cache";
 
 export async function createLibraryAction(formData){
@@ -12,4 +12,11 @@ export async function createLibraryAction(formData){
     await createLibrary(title, author, type, token ,userId);
 
     revalidatePath("/");
+}
+
+export async function deleteBookAction(bookId){
+    const token = await getToken();
+    await deleteBook(token, bookId);
+    revalidatePath("/");
+
 }

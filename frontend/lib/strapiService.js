@@ -42,3 +42,12 @@ export async function createLibrary(title, author, type, token, userId){
         throw new Error("Kitap ekleme aşamasında bir hata oluştu");
     }
 }
+
+export async function deleteBook(token, bookId){
+    await axiosClient.delete(`/libraries/${bookId}`,{
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+}

@@ -1,3 +1,4 @@
+import DeleteButton from "./delete-button";
 import { Button } from "./ui/button";
 import {
   Accordion,
@@ -14,9 +15,9 @@ export default function Library({book}) {
     <div>
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
-          <AccordionTrigger>{book.title} {book.author} {book.type} </AccordionTrigger>
+          <AccordionTrigger>{book.title} - {book.author} - {book.type} </AccordionTrigger>
           <AccordionContent>
-            <Button>Sil</Button>
+            <DeleteButton bookId={book.documentId} title={book.title} />
           </AccordionContent>
         </AccordionItem>
       </Accordion>
