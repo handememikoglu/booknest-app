@@ -51,3 +51,28 @@ export async function deleteBook(token, bookId){
     });
 
 }
+
+export async function updateBook(bookId, title, author, type, token){
+    try{
+        await axiosClient.put(`/libraries/${bookId}`,{
+            data: {
+                title,
+                author,
+                type,
+            },
+        },
+        {
+            headers: {
+                Authorization:`Bearer ${token}`,
+            }
+
+        },
+    );
+    } catch (error) {
+        console.error("İşlem sırasında bir hata oluştu:", error);
+        throw new Error("Kitap güncelleme işlemi sırasında bir hata oluştu.");
+    }
+        
+    
+  
+}
