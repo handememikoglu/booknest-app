@@ -14,7 +14,7 @@ export function RegisterForm({ className, ...props }) {
   const [errors, setErrors] = useState({});
   
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const formData = new FormData(e.target);
 
     const data = {

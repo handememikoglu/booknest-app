@@ -12,6 +12,7 @@ import Link from "next/link";
 import LibraryForm from "@/components/library-form";
 import LibraryList from "@/components/library-list";
 import Header from "@/components/header";
+import ThemeToggle from "@/components/themeToggle";
 
 export default async function Home(){
   const token = await getToken();
@@ -22,7 +23,6 @@ export default async function Home(){
       {user ? (
         <>
           <Header user={user} />
-
           <section className="w-full max-w-4xl mt-8 flex flex-col gap-6">
             <LibraryForm user={user} />
             <LibraryList />
