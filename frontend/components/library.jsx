@@ -14,9 +14,9 @@ import EditButton from "./edit-button";
 export default function Library({book}) {
 
   return(
-    <div>
+    <div >
       <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
+        <AccordionItem value="item-1" className="shadow-lg p-2 rounded-lg">
           <AccordionTrigger>{book.title} - {book.author} - {book.type} </AccordionTrigger>
           <AccordionContent>
             <div className="flex gap-2 items-center">
