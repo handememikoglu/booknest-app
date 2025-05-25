@@ -76,3 +76,24 @@ export async function updateBook(bookId, title, author, type, token){
     
   
 }
+
+export async function toggle(bookId, completed, token){
+    try{
+        await axiosClient.put(
+            `/libraries/${bookId}`,
+            {
+                data:{
+                    completed,
+                },
+            },
+            {
+                headers:{
+                    Authorization: `Bearer ${token}`,
+                },
+            },
+        );
+    }catch(error){
+        console.error("İşlem sırasında bir hata oluştu:", error);
+        throw new Error("Kitap güncelleme işlemi sırasında bir hata oluştu.");
+    }
+}

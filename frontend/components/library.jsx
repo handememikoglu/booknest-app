@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import EditButton from "./edit-button";
+import ToggleBook from "./toggle-book";
 
 
 
@@ -22,6 +23,7 @@ export default function Library({book}) {
             <div className="flex gap-2 items-center">
               <DeleteButton bookId={book.documentId} title={book.title} />
               <EditButton book={book}/>
+              <ToggleBook  bookId={book.documentId} completed={book.completed} />
             </div>
           </AccordionContent>
         </AccordionItem>

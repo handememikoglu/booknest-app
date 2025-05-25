@@ -1,5 +1,5 @@
 "use server";
-import { createLibrary, deleteBook, getToken, updateBook } from "@/lib/strapiService";
+import { createLibrary, deleteBook, getToken, toggle, updateBook } from "@/lib/strapiService";
 import { revalidatePath } from "next/cache";
 
 export async function createLibraryAction(formData){
@@ -28,5 +28,13 @@ export async function updateBookAction(formData){
     const type = formData.get("type");
     const token = await getToken();
     await updateBook(bookId, title, author, type, token);
+    revalidatePath("/");
+}
+
+export async function toggleAction(formData){
+    const bookId = formData.get("bookId");
+    const completed = formData.get("completed");
+    const token = await getToken();
+    await toggle(bookId, completed, token);
     revalidatePath("/");
 }

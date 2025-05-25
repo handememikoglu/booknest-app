@@ -376,6 +376,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiLibraryLibrary extends Struct.CollectionTypeSchema {
   collectionName: 'libraries';
   info: {
+    description: '';
     displayName: 'library';
     pluralName: 'libraries';
     singularName: 'library';
@@ -385,6 +386,7 @@ export interface ApiLibraryLibrary extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.String & Schema.Attribute.Required;
+    completed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

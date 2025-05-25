@@ -4,7 +4,8 @@
   "info": {
     "singularName": "library",
     "pluralName": "libraries",
-    "displayName": "library"
+    "displayName": "library",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,6 +27,10 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "libraries"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
